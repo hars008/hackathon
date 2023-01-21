@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./registration.css";
-import randomstring from 'randomstring';
-import nodemailer from 'nodemailer';
+
 function Registration() {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,13 +8,13 @@ function Registration() {
     password: "",
     confirmPassword: "",
     showOTP: false,
-    OTP: ""
+    OTP: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -24,43 +23,18 @@ function Registration() {
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
     } else {
-        try {
-            // send data to server for email verification
-            // If email is verified, then show OTP input field
-            // generate OTP
-            const OTP = randomstring.generate({
-              length: 6,
-              charset: 'numeric'
-            });
-            setFormData({ ...formData, showOTP: true });
-            // send OTP to entered email address
-            let transporter = nodemailer.createTransport({
-              service: 'gmail',
-              auth: {
-                user: '20126@iiitu.ac.in',
-                pass: 'harsh4277'
-              }
-            });
-            let mailOptions = {
-              from: '20126@iiitu.ac.in',
-              to: formData.email,
-              subject: 'OTP for registration',
-              text: `Your OTP for registration is ${OTP}`
-            };
-            transporter.sendMail(mailOptions, function(error, info){
-              if (error) {
-                console.log(error);
-              } else {
-                console.log('Email sent: ' + info.response);
-                alert("OTP has been sent to your email!");
-              }
-            });
-          } catch (err) {
-            console.error(err);
-            alert("An error occurred. Please try again later.");
-          }
-        }
-      };
+      try {
+        // send data to server for email verification
+        // If email is verified, then show OTP input field
+        setFormData({ ...formData, showOTP: true });
+        //send email with OTP
+        alert("OTP has been sent to your email!");
+      } catch (err) {
+        console.error(err);
+        alert("An error occurred. Please try again later.");
+      }
+    }
+  };
 
   const handleOTPSubmit = async (e) => {
     e.preventDefault();
@@ -76,7 +50,7 @@ function Registration() {
   return (
     <div className="registration-container">
       <h1>Register</h1>
-      <form className="hi" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="hi">
         <input
           type="text"
           name="name"
