@@ -1,0 +1,27 @@
+.card{
+    background-color: #545354d0;
+    color: white;
+    border: 1px solid #800040;
+    margin: 1rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 20rem;
+    text-align:center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: center; */
+    margin: 0 1rem;
+}
+.myCardList{
+    margin-bottom: 10px;
+}
+
+.myCardList li{
+    background-color: #545354d0;
+}
