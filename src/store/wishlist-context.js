@@ -9,7 +9,6 @@ const WishlistContext = createContext({
 });
 export function WishlistContextProvider(props) {
   const [userFavorites, setUserFavorites] = useState([]);
-
   function addFavoriteHandler(favoriteItem) {
     console.log("ADDed");
     setUserFavorites((prevUserFavorites) => {
