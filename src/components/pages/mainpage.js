@@ -1,4 +1,9 @@
+import Login from "./login";
+import Registration from "./registrationpage";
 function Main(){
-    return <div>HIi this is main page:--</div>
+    return <div>
+        <Login />
+        <Registration />
+    </div>
 }
 export default Main;
