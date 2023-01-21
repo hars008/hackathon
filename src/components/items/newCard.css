@@ -3,7 +3,8 @@
 }
 
 .movie-card.hide {
-    display: none;
+    display: block;
+    background-color: blue;
 }
 
 .movie-card.show {
