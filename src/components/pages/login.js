@@ -3,22 +3,44 @@ import { Link } from "react-router-dom";
 import "./login.css";
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [password,setPassword]=useState("");
+  const[email,setEmail]=useState("");
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const emails =(e)=>{
+    setEmail(e.target.value);
+  }
+  const passwords = (e) => {
+    setPassword(e.target.value);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // submit form data to server
-  };
+    const data = {
+      email: email,
+      password: password,
+    }
+    fetch("http://localhost:80/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then((result) => {
+      result.json().then((resp) => {
+        if (resp) {
+          localStorage.setItem(resp._id,"userid");
+          localStorage.setItem(resp.isAdmin, "userisAdmin");
+          localStorage.setItem(resp.accessToken, "token");
+          console.log("hogya");
+        }
+        else {
+          alert("Something went wrong");
+          console.log("gadbad hogayi");
+        }
+      })
+    })
+  }
+  
 
   return (
     <div className="login-container">
@@ -27,9 +49,9 @@ function Login() {
         <input
           type="email"
           name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
+          placeholder="Email asli "
+          value={email}
+          onChange={emails}
           required
           className="form-control"
         />
@@ -37,19 +59,11 @@ function Login() {
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={passwords}
           required
         />
-        {!isLogin && (
-          <input
-            type="password"
-            name="password2"
-            placeholder="Confirm Password"
-            onChange={handleChange}
-            required
-          />
-        )}
+        
         <button type="submit">{isLogin ? "Login" : "Register"}</button>
       </form>
       <p>
