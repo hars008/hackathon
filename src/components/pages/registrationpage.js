@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./registration.css";
 
 function Registration() {
+
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",

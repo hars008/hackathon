@@ -1,9 +1,13 @@
 import React from "react";
 import CardBoot from "../items/CardBoot";
+import "./moviespage.css"
 function Movies() {
   return (
     <>
       <h1>Movies</h1>
+      
+        <h1>hello</h1>
+      
       <div className="row">
         <CardBoot
           id="1"
@@ -29,6 +33,13 @@ function Movies() {
           description="When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice"
           img="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg"
         />
+      </div>
+
+      <div className="scene">
+        <div className="card">
+          <div className="card__face card__face--front">front</div>
+          <div className="card__face card__face--back">back</div>
+        </div>
       </div>
     </>
   );
