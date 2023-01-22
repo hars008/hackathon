@@ -1,7 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 import {NavLink} from "react-router-dom";
 import "./mainNavigation.css";
 function MainNavigation(){
+  const [ins,setIns]=useState(false);
+  const handle=()=>{
+    if(localStorage.getItem("userid")!==null){
+      setIns(true);
+    }
+    else{
+      setIns(false);
+    }
+  }
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -49,12 +59,21 @@ function MainNavigation(){
                 <NavLink to="/about">About</NavLink>
               </li>
 
-              <li
+              {ins ?<li
                 className="nav-item active"
                 style={{ margin: "0 10px 10px 40px" }}
+                onClick={handle}
               >
-                <NavLink to="/loginPage">Login</NavLink>
+                <NavLink to="/loginPage">Login</NavLink> 
+              </li> : <li
+                className="nav-item active"
+                style={{ margin: "0 10px 10px 40px" }}
+                onClick={handle}
+                >
+                <NavLink to="/logout">Logout</NavLink>
               </li>
+              }
+              
             </ul>
             <form className="form-inline my-2">
               <input

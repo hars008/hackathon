@@ -1,11 +1,16 @@
 import React from "react";
 import "./CardBoot.css";
 import { useState } from "react";
+import {  useNavigate } from "react-router";
 // import StarRating from 'react-star-rating';
 // import { Rating } from "@mui/material";
 
 const CardBoot = (props) => {
+  const navigate=useNavigate();
   const [showCard, setShowCard] = useState(false);
+  const clicked=(e)=>{
+   navigate('/feed/'+props.id);
+  }
   return (
     <>
       <div
@@ -13,7 +18,8 @@ const CardBoot = (props) => {
         style={{ width: "20rem" }}
         onMouseEnter={() => setShowCard(true)}
         onMouseLeave={() => setShowCard(false)}
-      >
+        onClick={clicked}
+        >
         <img src={props.img} className="card-img" alt="..." />
         {showCard && (
           <div className="card-img-overlay myOverlay">

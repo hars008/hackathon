@@ -2,13 +2,16 @@ import React from "react";
 import CardBoot from "../items/CardBoot";
 import "./moviespage.css"
 import { useState,useEffect } from "react";
+import { Navigate } from "react-router";
 
 function Movies() {
 
   const [shop, setShop] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:80/api/movie/get")
+    const id=localStorage.getItem("userid");
+    console.log(id);
+    fetch("http://localhost:80/api/movie/find/"+id)
       .then((response) => {
         return response.json();
       })
@@ -16,18 +19,17 @@ function Movies() {
         setShop(data);
       });
   },[])
-  console.log(shop);
-  const movies = [
-    {
-      cover: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
-      title: "The Shawshank Redemption",
-      releaseYear: "1994",
-    }];
+  
+  const ids = localStorage.getItem('userid');
   return (
+    (ids == null)  ? <Navigate to ='/loginPage'/>:
     <>
-      <h1>Movies</h1>
+      <h1 style={{
+        textAlign:"center",
+        color:"white",
+        marginTop:"10px",
 
-      <h1>hello</h1>
+      }}> Your Recommendation</h1>
 
       <div className="row">
         {shop.map((item)=>{

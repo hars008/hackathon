@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate,useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import LoginContext from "../pages/context";
 import "./login.css";
@@ -8,7 +8,7 @@ function Login() {
   const loginctx=useContext(LoginContext);
   const [password,setPassword]=useState("");
   const[email,setEmail]=useState("");
-
+   const navigate=useNavigate();
   const emails =(e)=>{
     setEmail(e.target.value);
   }
@@ -31,14 +31,15 @@ function Login() {
     }).then((result) => {
       result.json().then((resp) => {
         if (resp) {
-          localStorage.setItem(resp._id,"userid");
-          localStorage.setItem(resp.isAdmin, "userisAdmin");
-          localStorage.setItem(resp.accessToken, "token");
-          console.log("hogya");
+          localStorage.setItem("userid", resp._id);
+          localStorage.setItem( "userisAdmin",resp.isAdmin);
+          localStorage.setItem("token", resp.accessToken);
+          navigate('/movies');
         }
         else {
           alert("Something went wrong");
           console.log("gadbad hogayi");
+          navigate("/loginpage")
         }
       })
     })

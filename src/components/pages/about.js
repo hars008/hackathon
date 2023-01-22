@@ -1,4 +1,6 @@
+import AboutContent from '../items/About'
+
 function About(){
-    return <div>HIi this is About page:--</div>
+    return <AboutContent/>
 }
 export default About;
