@@ -7,8 +7,10 @@ import Rec from "./components/pages/recommendationspage";
 import About from "./components/pages/about";
 import Registration from "./components/pages/registrationpage";
 import Mainpage from "./components/pages/mainpage"
+
 import Logout from "./components/pages/logout.js";
 import Iframe from "./components/items/iframe/iframe";
+
 function App() {
   return (
     <div className="App">
@@ -21,8 +23,10 @@ function App() {
         <Route path="/about" element={<About />}/>
         <Route path="/loginPage" element={<Main />}/>
           <Route path="/Register" element={<Registration />} />
+
           <Route path="/logout" element={<Logout />} />
           <Route path="/feed/:id" element={<Iframe/>} />
+
       </Routes>
       </Layout>
        </div>

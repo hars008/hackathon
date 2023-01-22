@@ -2,16 +2,20 @@ import React from "react";
 import CardBoot from "../items/CardBoot";
 import "./moviespage.css"
 import { useState,useEffect } from "react";
+
 import { Navigate } from "react-router";
+
 
 function Movies() {
 
   const [shop, setShop] = useState([]);
 
   useEffect(() => {
+
     const id=localStorage.getItem("userid");
     console.log(id);
     fetch("http://localhost:80/api/movie/find/"+id)
+
       .then((response) => {
         return response.json();
       })
@@ -19,8 +23,10 @@ function Movies() {
         setShop(data);
       });
   },[])
+
   
   const ids = localStorage.getItem('userid');
+
   return (
     (ids == null)  ? <Navigate to ='/loginPage'/>:
     <>
