@@ -6,14 +6,14 @@ import Movies from "./components/pages/moviespage";
 import Rec from "./components/pages/recommendationspage";
 import About from "./components/pages/about";
 import Registration from "./components/pages/registrationpage";
-
+import Mainpage from "./components/pages/mainpage"
 function App() {
   return (
     <div className="App">
       
       <Layout>
       <Routes>
-        <Route path="/home" element={<Main />}/>
+        <Route path="/home" element={<Mainpage />}/>
         <Route path="/movies" element={<Movies />}/>
         <Route path="/recommendations" element={<Rec />}/>
         <Route path="/about" element={<About />}/>

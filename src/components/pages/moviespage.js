@@ -1,7 +1,6 @@
 import React from "react";
 import CardBoot from "../items/CardBoot";
 import "./moviespage.css"
-import NewCard from "../items/NewCard";
 import { useState,useEffect } from "react";
 
 function Movies() {
