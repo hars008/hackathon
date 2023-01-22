@@ -71,7 +71,7 @@ function Login() {
       </form>
       <p>
         Don't have an account?
-        <Link to="#" onClick={
+        <Link to="/Register" onClick={
           ()=>{
             loginctx.setLogin();
             

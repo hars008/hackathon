@@ -24,7 +24,7 @@ const CardBoot = (props) => {
             </p>
             <p className="card-text">
               <b>Year of Release: </b>
-              {props.Year}
+              2019
             </p>
             <p className="card-text">
               <b>Rating: </b>

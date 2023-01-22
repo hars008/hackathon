@@ -7,9 +7,9 @@ function Main() {
 
   return (
     <div>
-    <Login />
+   <Login />
 
-      <Registration />
+      {/* <Registration /> */}
     </div>
   );
 }

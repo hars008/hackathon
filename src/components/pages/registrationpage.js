@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./registration.css";
 import {  useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useContext } from "react";
 import {LoginContextProvider} from "../pages/context";
 
