@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./mainNavigation.css";
 function MainNavigation(){
     return (
@@ -26,34 +26,34 @@ function MainNavigation(){
             >
               <li
                 className="nav-item active"
-                style={{ margin: "0 10px 7px 40px" }}
+                style={{ margin: "0 10px 10px 40px" }}
               >
-                <Link to="/home/">Home</Link>
+                <NavLink to="/home/">Home</NavLink>
               </li>
               <li
                 className="nav-item active "
-                style={{ margin: "0 10px 7px 40px" }}
+                style={{ margin: "0 10px 10px 40px" }}
               >
-                <Link to="/movies">Movies</Link>
+                <NavLink to="/movies">Movies</NavLink>
               </li>
               <li
                 className="nav-item active"
-                style={{ margin: "0 10px 7px 40px" }}
+                style={{ margin: "0 10px 10px 40px" }}
               >
-                <Link to="/recommendations">Recommendations</Link>
+                <NavLink to="/recommendations">Recommendations</NavLink>
               </li>
               <li
                 className="nav-item active"
-                style={{ margin: "0 10px 7px 40px" }}
+                style={{ margin: "0 10px 10px 40px" }}
               >
-                <Link to="/about">About</Link>
+                <NavLink to="/about">About</NavLink>
               </li>
 
               <li
                 className="nav-item active"
-                style={{ margin: "0 10px 7px 40px" }}
+                style={{ margin: "0 10px 10px 40px" }}
               >
-                <Link to="/loginPage">Login</Link>
+                <NavLink to="/loginPage">Login</NavLink>
               </li>
             </ul>
             <form className="form-inline my-2">

@@ -35,15 +35,17 @@ nav a {
   color: #ff3838;
   text-decoration: none;
   padding-bottom: 5px;
-  border-bottom: 5px solid #e50000fd;
   transition: 0.15s ease-in-out;
-  transform: scale(1.5);
 
 }
 
 nav a.active {
-  color: #f9a51a;
-  border-bottom: 2px solid #f9a51a;
+  cursor: pointer;
+    color: #ff3838;
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #e50000fd;
+    transition: 0.15s ease-in-out;
 
 }
 
