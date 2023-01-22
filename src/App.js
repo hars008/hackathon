@@ -5,6 +5,7 @@ import Main from "./components/pages/loginPage";
 import Movies from "./components/pages/moviespage";
 import Rec from "./components/pages/recommendationspage";
 import About from "./components/pages/about";
+import Registration from "./components/pages/registrationpage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/recommendations" element={<Rec />}/>
         <Route path="/about" element={<About />}/>
         <Route path="/loginPage" element={<Main />}/>
+          <Route path="/Register" element={<Registration />} />
       </Routes>
       </Layout>
        </div>

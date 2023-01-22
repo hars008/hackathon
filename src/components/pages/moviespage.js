@@ -2,15 +2,28 @@ import React from "react";
 import CardBoot from "../items/CardBoot";
 import "./moviespage.css"
 import NewCard from "../items/NewCard";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+
 function Movies() {
+
+  const [shop, setShop] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:80/api/movie/get")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setShop(data);
+      });
+  },[])
+  console.log(shop);
   const movies = [
     {
       cover: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
       title: "The Shawshank Redemption",
       releaseYear: "1994",
     }];
-  const [showCard, setShowCard] = useState(false);
   return (
     <>
       <h1>Movies</h1>
@@ -18,36 +31,20 @@ function Movies() {
       <h1>hello</h1>
 
       <div className="row">
-        <CardBoot
-          id="1"
-          title="The Shawshank Redemption"
-          description="Two imprisoned"
-          img="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg"
-        />
-        <CardBoot
-          id="2"
-          title="The Godfather"
-          description="The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son"
-          img="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg"
-        />
-        <CardBoot
-          id="3"
-          title="The Godfather: Part II"
-          description="The early life and career of Vito Corleone in 1920s New York City is portrayed while his son, Michael, expands and tightens his grip on the family crime syndicate"
-          img="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg"
-        />
-        <CardBoot
-          id="3"
-          title="The Godfather: Part II"
-          description="The early life and career of Vito Corleone in 1920s New York City is portrayed while his son, Michael, expands and tightens his grip on the family crime syndicate"
-          img="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg"
-        />
-        <CardBoot
-          id="4"
-          title="The Dark Knight"
-          description="When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice"
-          img="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg"
-        />
+        {shop.map((item)=>{
+          return(
+            <CardBoot
+              key={item._id}
+              id={item._id}
+              title={item.name}
+              description={item.description}
+              img={item.image}
+              genre={item.genre}
+              rating={item.rating}
+            />
+          )
+        })}
+        
       </div>
       
      
