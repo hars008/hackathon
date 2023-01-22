@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import LoginContext from "../pages/context";
 import "./login.css";
 function Login() {
-  const [isLogin, setIsLogin] = useState(true);
+  // const [isLogin, setIsLogin] = useState(true);
+  const loginctx=useContext(LoginContext);
   const [password,setPassword]=useState("");
   const[email,setEmail]=useState("");
 
@@ -44,7 +47,7 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h1>{isLogin ? "Login" : "Register"}</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit} className="hi form-signin">
         <input
           type="email"
@@ -64,14 +67,16 @@ function Login() {
           required
         />
         
-        <button type="submit">{isLogin ? "Login" : "Register"}</button>
+        <button type="submit"> Login</button>
       </form>
       <p>
-        {isLogin
-          ? "Don't have an account? "
-          : "Already have an account? "}
-        <Link to="#" onClick={() => setIsLogin(!isLogin)}>
-          {isLogin ? "Register" : "Login"}
+        Don't have an account?
+        <Link to="#" onClick={
+          ()=>{
+            loginctx.setLogin();
+            
+          }}>
+          Register
         </Link>
       </p>
     </div>

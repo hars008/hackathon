@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import "./registration.css";
 import {  useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useContext } from "react";
+import {LoginContextProvider} from "../pages/context";
+
+
 
 function Registration() {
 
+  // const [isLogin, setIsLogin] = useState(true);
+  const loginctx = useContext(LoginContextProvider);
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -91,7 +100,7 @@ function Registration() {
   return (
     <div className="registration-container">
       <h1>Register</h1>
-      <form onSubmit={Submit}>
+      <form onSubmit={Submit} className="hi">
         <input
           type="text"
           name="name"
@@ -139,6 +148,17 @@ function Registration() {
           <button type="submit">Verify OTP</button>
         </form>
       )}
+      <p>
+        Already have an account?
+        <Link to="#" onClick={
+          () => {
+            loginctx.setLogin();
+            // navigate("/login");
+          }
+        }>
+          Login
+        </Link>
+      </p>
     </div>
   );
 }
