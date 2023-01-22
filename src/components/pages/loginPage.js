@@ -7,7 +7,7 @@ function Main() {
 
   return (
     <div>
-    {!loginctx.isLogin?<Login />:<Registration />}
+    <Login />
 
       <Registration />
     </div>

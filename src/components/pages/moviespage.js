@@ -1,9 +1,10 @@
 import React from "react";
 import CardBoot from "../items/CardBoot";
 import "./moviespage.css"
-import NewCard from "../items/NewCard";
 import { useState } from "react";
 function Movies() {
+
+
   const movies = [
     {
       cover: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
