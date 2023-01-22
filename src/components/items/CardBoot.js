@@ -9,7 +9,7 @@ const CardBoot = (props) => {
   return (
     <>
       <div
-        className="card"
+        className="card HomeCard"
         style={{ width: "20rem" }}
         onMouseEnter={() => setShowCard(true)}
         onMouseLeave={() => setShowCard(false)}
